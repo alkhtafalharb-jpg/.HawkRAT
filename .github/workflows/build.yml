@@ -9,10 +9,12 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - uses: gradle/actions/setup-gradle@v3
-    - name: Build
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v3
+    - name: Build with Gradle
       run: gradle assembleDebug
-    - uses: actions/upload-artifact@v4
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
       with:
         name: HawkRAT-APK
         path: app/build/outputs/apk/debug/app-debug.apk
